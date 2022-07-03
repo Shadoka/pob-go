@@ -1,23 +1,15 @@
 package main
 
 import (
-	"encoding/json"
-	"io/ioutil"
 	"log"
 
-	"github.com/Shadoka/pob-go/model"
+	"github.com/Shadoka/pob-go/data_import"
 )
 
 func main() {
-	content, err := ioutil.ReadFile("resources/character_data.json")
+	character_data, err := data_import.ImportCharacterPassives("TheShadoka", "CrashingShadoka", "pc")
 	if err != nil {
-		log.Fatal("error opening file: ", err)
-	}
-
-	var character_data model.CharacterData
-	err = json.Unmarshal(content, &character_data)
-	if err != nil {
-		log.Fatal("error unmarshalling server response: ", err)
+		log.Fatal("Importing character data was unsuccessful: ", err)
 	}
 
 	log.Printf("Imported character has %v jewels socketed", len(character_data.Items))
