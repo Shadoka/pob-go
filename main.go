@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	content, err := ioutil.ReadFile("mock_data/character_data.json")
+	content, err := ioutil.ReadFile("resources/character_data.json")
 	if err != nil {
 		log.Fatal("error opening file: ", err)
 	}
