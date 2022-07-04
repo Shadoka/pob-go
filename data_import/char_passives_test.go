@@ -15,4 +15,8 @@ func TestImportPassives(t *testing.T) {
 	if len(character_data.Items) != 12 {
 		t.Fatalf("expected 12 items in imported dataset, got %v", len(character_data.Items))
 	}
+
+	if len(character_data.Hashes_ex) != 18 {
+		t.Fatalf("expected 18 entries in Hashes_ex in imported dataset, got %v", len(character_data.Hashes_ex))
+	}
 }
